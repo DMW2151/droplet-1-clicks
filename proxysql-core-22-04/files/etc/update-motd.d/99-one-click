@@ -1,0 +1,20 @@
+#!/bin/sh
+
+myip=$(hostname -I | awk '{print$1}')
+
+cat <<EOF
+********************************************************************************
+
+Welcome to DigitalOcean's 1-Click ProxySQL Droplet.
+To keep this Droplet secure, the UFW firewall is enabled.
+All ports are BLOCKED except:
+	- 22 (SSH)
+	- 6033 (ProxySQL connections) 
+	- 6070 (ProxySQL metrics - disabled by default)
+	- 6080 (ProxySQL UI - disabled by default)
+
+For help and more information, visit https://marketplace.digitalocean.com/apps/proxysql
+
+********************************************************************************
+To delete this message of the day: rm -rf $(readlink -f ${0})
+EOF
